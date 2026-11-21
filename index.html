@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wissenschaftliche Urlaubsbeobachtungen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .gallery-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 15px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .caption {
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+        .caption strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #0056b3;
+        }
+        .video-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+        summary {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #0056b3;
+            cursor: pointer;
+            user-select: none;
+            padding: 5px 0;
+        }
+        summary:hover {
+            text-decoration: underline;
+        }
+        .impressum-content {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.5;
+        }
+         footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+            margin-bottom: 200px; /* Schafft künstlichen Platz nach unten zum Scrollen */
+        }
+        
+    .seychelles-header {
+        position: relative;
+        /* Tropischer Farbverlauf: Tiefes Ozeanblau -> Türkis -> warmes Sandgold */
+        background: linear-gradient(180deg, #004e64 0%, #008b99 45%, #2ec4b6 75%, #ffe8b6 100%);
+        color: #ffffff;
+        text-align: center;
+        padding: 100px 20px 150px 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 78, 100, 0.25);
+        border-radius: 0 0 12px 12px;
+        margin-bottom: 40px;
+    }
+
+    /* Tropische Sonne */
+    .seychelles-header::before {
+        content: "";
+        position: absolute;
+        top: 30px;
+        right: 18%;
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle, #fffbe6 0%, #ffd166 55%, rgba(255, 209, 102, 0) 75%);
+        border-radius: 50%;
+        opacity: 0.9;
+        z-index: 1;
+    }
+
+    .seychelles-header-content {
+        position: relative;
+        z-index: 3;
+        max-width: 850px;
+        margin: 0 auto;
+    }
+
+    .seychelles-header h1 {
+        font-family: 'Georgia', serif;
+        font-size: 3em;
+        margin: 0 0 12px 0;
+        letter-spacing: 1px;
+        text-shadow: 0 3px 12px rgba(0, 40, 55, 0.55);
+    }
+
+    .seychelles-header p {
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 1.2em;
+        margin: 0 auto;
+        color: #f0fdfa;
+        text-shadow: 0 2px 8px rgba(0, 40, 55, 0.55);
+    }
+
+    /* Wellen, Granitfelsen & Palmen-Silhouette */
+    .island-silhouette {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 115px;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+        .seychelles-header {
+            padding: 75px 15px 120px 15px;
+        }
+        .seychelles-header h1 {
+            font-size: 2.1em;
+        }
+    }        
+        
+    </style>
+</head>
+<body>
+
+  <header class="seychelles-header">
+    <div class="seychelles-header-content">
+        <h1>Seychellen Reisebericht</h1>
+        <p>Inselwelt zwischen Granitfelsen, türkisfarbenen Buchten und tropischer Natur auf Mahé</p>
+    </div>
+
+    <!-- Küstenlinie mit typischen Seychellen-Granitfelsen, Palmen & Meereswellen -->
+    <svg class="island-silhouette" viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://w3.org">
+        <!-- Ferne Insel-Silhouette am Horizont -->
+        <path d="M850,85 Q980,45 1120,75 T1360,85 L1360,110 L850,110 Z" fill="#006d77" opacity="0.55"/>
+
+        <!-- Typische abgerundete Seychellen-Granitfelsen links -->
+        <path d="M0,115 L0,65 Q40,35 90,55 Q140,30 190,65 Q235,55 265,95 L265,115 Z" fill="#3d405b"/>
+        <path d="M40,115 Q95,60 155,80 Q200,65 230,115 Z" fill="#2b2d42"/>
+
+        <!-- Gebogene Kokospalme links über den Felsen -->
+        <g transform="translate(150, 10) scale(0.75)" fill="#1d2d2a">
+            <!-- Stamm -->
+            <path d="M25,85 Q35,45 60,15 L66,18 Q43,48 33,85 Z"/>
+            <!-- Palmwedel -->
+            <path d="M62,16 Q35,5 15,22 Q38,14 62,16 Z"/>
+            <path d="M62,16 Q45,-8 25,-2 Q47,2 62,16 Z"/>
+            <path d="M62,16 Q75,-10 98,2 Q78,4 62,16 Z"/>
+            <path d="M62,16 Q88,8 102,28 Q82,18 62,16 Z"/>
+            <path d="M62,16 Q68,35 55,48 Q62,32 62,16 Z"/>
+        </g>
+
+        <!-- Hintere Meereswelle -->
+        <path d="M0,92 Q360,72 720,92 T1440,88 L1440,140 L0,140 Z" fill="#007788" opacity="0.8"/>
+
+        <!-- Vordere Meereswelle -->
+        <path d="M0,108 Q420,128 880,102 T1440,112 L1440,140 L0,140 Z" fill="#004e64"/>
+    </svg>
+</header>
+    
+    <h2>📸 Phänomene & Dokumentation</h2>
+    <div class="gallery">
+
+<!-- Bild 1 -->
+<div class="gallery-item">
+        <img src="bild1.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Abb. 1: Anreise</strong>
+                Quellwolken über den Seychellen, aus denen durchaus auch feiner Nieselregen fallen kann. Dort unten wollen wir hin. 
+            </div>
+        </div>
+        
+<div class="gallery-item" style="display: flex; align-items: center; padding: 20px; background: #fff8f0; border-left: 4px solid #e07a5f; border-radius: 4px;">
+    <p style="margin: 0;"><strong>Vorsicht!</strong> Hinweisschilder zeigen die Gefahr (besonders wenn der Strand keine vorgelagerten Riffe hat). Übrigens besuchten wir die Hauptinsel Mahé.</p>
+</div>
+
+<div class="gallery-item">
+            <!-- Ersetzen Sie bild2.jpg durch Ihren echten Dateinamen -->
+        <img src="bild2.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Abb. 2: Schild</strong>
+                selbsterklärend
+            </div>
+        </div>
+        
+<div class="gallery-item" style="display: flex; align-items: center; padding: 20px; background: #fff8f0; border-left: 4px solid #e07a5f; border-radius: 4px;">
+    <p style="margin: 0;"><strong>Mehrsprachiges Warnsystem und Lingua Franca</strong><br>Das offizielle Hinweisschild dokumentiert die dreisprachige Realität der Seychellen. Die oberste und am prominentesten platzierte Warnung ist in <em>Seychellenkreol (Seselwa)</em> verfasst („Atansyon – Kouran tre danzere“). Es handelt sich um eine französischbasierte Kreolsprache, die sich im 18. Jahrhundert aus dem Altfranzösischen der Kolonisatoren und verschiedenen afrikanischen sowie madagassischen Sprachen der Sklaven entwickelte. Heute ist es eine vollwertige, standardisierte Amtssprache des Inselstaates, gefolgt von den ko-offiziellen Sprachen Englisch und Französisch.</p>
+</div>
+
+ <!-- Dieses Element passt sich automatisch der Höhe des Nachbarn an -->
+ <div class="gallery-item" style="display: flex; flex-direction: column; height: calc(100% - 30px);">
+        <img src="bild3.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong></strong>
+            </div>
+        </div>
+ <div class="gallery-item">
+        <img src="bild4.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 280px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Abb. 4: brechende Welle</strong>
+                Die Wellen haben doch schon eine beachtliche Kraft. Schließlich liegen die Seychellen mitten im Indischen Ozean.
+            </div>
+        </div>
+ <div class="gallery-item">
+        <img src="bild5.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Abb. 5: einsamer Strand</strong>
+                Badende waren nur selten zu sehen. Und wenn, dann waren es Bewohner und sie blieben hauptsächlich an Land oder machten höchstens ein paar Schritte ins Wasser.
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bild6.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Abb. 6: Ein weiterer Strand in einer Bucht</strong>
+                Der granitische Charakter der Insel ist offensichtlich.
+            </div>
+        </div>
+        
+<div class="gallery-item" style="display: flex; align-items: center; padding: 20px; background: #fff8f0; border-left: 4px solid #e07a5f; border-radius: 4px;">
+    <p style="margin: 0;">Da die Inseln recht nach am Äquator liegen, herrscht tropisches Klima. Das heißt in erster Linie ein recht warmes Klima. Die Temperatur ist etwa um die 30°C am Tage und des Nachts kühlt es sich kaum ab, was sehr ungewohnt ist. Die Tages- und Nachtlänge ist jeweils etwa 12 Stunden, so daß wie in unserem Fall wenige Minuten nach 6 Uhr hell wurde. Die Natur wacht dann auch auf, insbesondere ist Vogelgezwitscher zu hören. Leichten, kurzen Niesel-Regen hatten wir auch, des Nachts und zweimal eher Vormittags.</p>
+</div>        
+        
+        <div class="gallery-item" style="display: flex; flex-direction: column; height: calc(100% - 30px);">
+            <img src="bild7.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 100%;; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 7: Gipfelaussicht auf die granitische Felseninsel mit ihrer tropischen Vegetation</strong>
+                "Nature Walk to Tea Tavern Glacis" - so heißt dieser Wanderweg, von denen es doch einige gab.
+            </div>
+        </div>        
+<div class="gallery-item">
+<img src="bild8.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Abb. 8: Community-basierter Naturschutz und Ökosystem-Restoration</strong>
+                Dokumentation eines lokalen Renaturierungsprojekts im Distrikt Port Glaud / Nationalpark Morne Blanc. Auf den Seychellen spielen partizipative Ansätze („Dedicated people... are helping“) eine zentrale Rolle beim Schutz der stark bedrohten, oft endemischen Flora. Unterstützt durch internationale Programme und der lokalen National Parks Authority, zeigt dieses Schild den Übergang von rein staatlicher Verwaltung zu gemeinschaftlichem Umweltmanagement (Community-based Resource Management).
+            </div>
+        </div>        
+<!-- Box mit 2 Bildern untereinander und gemeinsamem Erklärtext -->
+<div class="gallery-item">
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <img src="bild9.jpg" alt="..." onclick="openLightbox(this)" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+                <img src="bild10.jpg" alt="..." onclick="openLightbox(this)" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            </div>
+            <div class="caption">
+                <strong>Abb. 9 und 10: Gärtnerisch gepflegte Landschaft</strong>
+                Entsprechend dem "Community-basierten Naturschutz" sehen wir hier "Seychelles Wildlife", also die naturbelassene Landschaft.
+            </div>
+        </div>        
+<div class="gallery-item">
+            <img src="bild11.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 350px;; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 11: Teeplantage</strong>
+                Im ganz oberen Bereich des Bildes sind die Teepflanzen der Plantage. Auf dem Bild im nach hinein zufällig entdeckt.
+            </div>
+        </div>
+<div class="gallery-item">
+            <img src="bild12.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 12: regionale Spezialität</strong>
+                Die Aromatisierung mit Vanille verweist zudem auf die historische Bedeutung von Orchideenplantagen (<em>Vanilla planifolia</em>) auf den Inseln, welche zeitweise zu den wichtigsten Exportgütern des Archipels gehörten. Geschmacklich etwas different zu den chinesischen (schwarzen) Tees, welche aber unter anderen klimatischen Bedingungen gedeihen. Ausgeprägte Jahreszeiten gibt es auf den Seychellen nicht.
+            </div>
+        </div>
+<div class="gallery-item">
+            <img src="bild13.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 300px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 13: Salazie Nature trail</strong>
+                Ein recht einfacher, ebener, kostenloser, von sehr wenigen Wanderern begangener Weg. Parkplätze am Einstiegspunkt rar, so daß woanders geparkt wurde und zu Fuß der Anmarsch war.
+            </div>
+        </div>
+<div class="gallery-item">
+            <img src="bild14.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 14: Straße zum "Salazie Nature trail"</strong>
+                Hier entlang ging es zum Einstiegspunkt.
+            </div>
+        </div>
+<div class="gallery-item">
+            <img src="bild15.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 15: Ein recht einfacher Wanderweg.</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+            <img src="bild16.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 16: Ein "Lost Places" - Spuren früherer menschlicher Zivilisation.</strong>
+            </div>
+        </div>        
+<div class="gallery-item">
+            <img src="bild17.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 17: Strandabschnitt "Police bay"</strong>
+            </div>
+        </div>        
+<div class="gallery-item">
+            <img src="bild18.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 18: Ehemalige Kokos-Plantage.</strong>
+		Scheinbar war an diesem Ort eine landwirtschaftliche Bewirtschaftung. Die nachfolgenden Einrichtungen deuten darauf hin.
+            </div>
+        </div>        
+<div class="gallery-item">
+            <img src="bild19.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 19: Ehemalige Kokos-Plantage (2).</strong>
+      Aufgrund von fehlender Pflege (Pflanzenschutzmittel, Düngung, Verjüngung des Bestandes, Unkraut) trugen die Bäume keine Früchte.
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild20.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 20: Ehemalige Kokos-Plantage (3).</strong>
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild21.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 21: Die dazugehörige Plantagen-Bewässerung</strong>
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild22.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 22: Papaya Pflanze mit grünen Früchten.</strong>
+		Diese wuchsen dort sehr zahlreich, was sehr ungewöhnlich für die natürliche Inselvegatation ist und auf eine gestörte Stelle hinweist.
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild23.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 23: mutmaßliches ehemaliges Bewirtschaftungsgebäude</strong>
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild24.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 24: Granitfelsen überall</strong>
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild25.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 25: Wanderweg</strong>
+		Nicht alle Wanderwege sind in gutem Zustand. Im Bild soll der Beginn eines Weges sein, aber wir haben ihn nicht mehr gefunden. Auch einige Meter im Gestrüpp keine Spur.
+            </div>
+        </div> 
+        
+<div class="gallery-item" style="display: flex; align-items: center; padding: 20px; background: #fff8f0; border-left: 4px solid #e07a5f; border-radius: 4px;">
+    <p style="margin: 0;">Die Tropische Vegetation ist bekannt für ihre Besonderheiten. So auch wie im Beispiel der nachfolgenden Baumwurzel (an der Oberfläche kriechend). Es waren mehrere Photos nötig, um die gesamte Länge einzufangen. Für die vollen Ausmaße bitte Bilder anklicken.<br><br>Epiphytische Pflanzen waren auch zu finden. Besonders an Orten mit verfügbaren Nährstoffen, also im Regenwasserablauf an Bäumen und Felsen außerhalb der Wälder.</p>
+</div>        
+        
+<div class="gallery-item">
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <img src="bild29.jpg" alt="..." onclick="openLightbox(this)" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+                <img src="bild28.jpg" alt="..." onclick="openLightbox(this)" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+                <img src="bild27.jpg" alt="..." onclick="openLightbox(this)" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            </div>
+            <div class="caption">
+            </div>
+        </div>        
+        
+ <div class="gallery-item" style="display: flex; align-items: center; padding: 20px; background: #fff8f0; border-left: 4px solid #e07a5f; border-radius: 4px;">
+    <p style="margin: 0;">Die Oberfläche tropischer Waldböden besteht in erster Linie aus Wurzeln. Man läuft und stolpert praktisch überall darüber.<br><br>Die besondere Struktur des Waldbodens verrät warum: unter einer Schicht frischer Blätter und Hölzer gibt es nur eine dünne Humusschicht, darauffolgend der ausgewaschene nährstoffarme Boden. Der ist sogar chemisch über die Jahrmillionen verändert, daß so gut wie nichts mehr gespeichert wird.</p>
+</div>               
+        
+<div class="gallery-item">
+            <img src="bild34.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 34: Orchidee an Stein</strong>
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild35.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 35: Orchidee an Baum</strong>
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild36.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 36: Wurzeln (1) - Morne Blanc Weg</strong>
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild37.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 37: Wurzeln (2)</strong>
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild38.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 38: Wurzeln (3)</strong>
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild39.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 39: Waldboden Profil</strong>
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild40.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 40: Waldboden und das was draufliegt</strong>
+		Blätter und Äste sind auf der Öberfläche, die in der vorherschenden Wärme demnächst rasent schnell zersetzt werden. Übrigens fallen solche Aststücke regelmäßig krachend von oben runter. Auch zu sehen sind Palmsämlinge, die eigentlich überall zu finden sind.
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild41.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 41: Lichtverhältnisse</strong>
+		Im Allgemeinen erreichte das Sonnenlicht durchaus auch den Waldboden, wie man exemplarisch sieht. So dunkel, wie immer behauptet, ist es in tropischen Wäldern, zumindest dort, nicht.
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild42.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 42: Coco de Mer</strong>
+		Die berühmte Seychellenpalme. Auf Mahe nur angepflanzt im Botanischen Garten angetroffen.
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild43.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 43: "Diebespalme"</strong>
+		In allen Größen sehr verbreitet anzutreffen, besonders in gestörten Gebieten wie an Straßenrändern. Wenn der Passatwind die Blätter aufeinanderschlagen läßt, führt das zu einer ungewohnten Geräuschkulisse.
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild44.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 44: "Diebespalme (2)"</strong>
+		Übrigens haben diese Palmen Stacheln an den Blattstielen. Da sie fast überall präsent sind, ist die Wahrscheinlichkeit nicht gering, bei einem Sturz ein paar Stacheln in der Hand zu haben.
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild45.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 45: Baumriesen überragen den Wald</strong>
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild46.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 46: Verschaffeltia splendida (Stelzenpalme)</strong>
+		Sie hat große ungeteilte Blätter, die aber durch den Wind eingerissen sind.
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild47.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 47: Die "Stelzen" dazu</strong>
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild48.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 48: Eingang zum Copolia Natur Weg</strong>
+		Kostenpflichtiger, sehr beliebter Wanderweg mit doch schon beachtlichen Anstiegen.
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild49.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 49: anstrengender Anstieg bei um die 30°C</strong>
+		Manche Wanderer stolperten und stürzten sogar, zumindest hatten alle wenn sie zurückkamen ein von der Hitze gezeichnetetes Antlitz. (Ich drücke mich jetzt mal diplomatisch aus)
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild50.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 50: letzter fotographierter Wegpunkt</strong>
+		Einige Wanderer liefen die Wege nicht bis zum Ende, besonders wenn Anstiege im Spiel waren, und kehrten um. So auch wir.
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild51.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 51: schwieriges Terrain</strong>
+		Mein Tipp: Wie die Bergsteiger vorgehen, Schritt für Schritt und auf Trittsicherheit achten.
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild52.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 52: waagerechter Baumstamm</strong>
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild53.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 53: Schildkröten</strong>
+		Die großen Exemplare sind recht zutraulich und an Menschen gewöhnt. Kurz vor unserer Ankunft am Gehege haben Gärtner des Botanischen Gartens Futter hineingestreut.
+            </div>
+        </div>  
+<div class="gallery-item">
+            <img src="bild54.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">
+            <div class="caption">
+                <strong>Abb. 54: Seidenspinne (Regenschirm zur Kontrasterhöhung dahinter)</strong>
+		Das Netz hing genau im Weg auf Kopfhöhe. Man mußte schon aufpassen, dort nicht hineinzulaufen.
+            </div>
+        </div>  
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+<!-- Einklappbarer Container für das Vimeo-Video -->
+<details style="background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; padding: 10px; cursor: pointer;">
+    <!-- Die Klick-Zeile (Titel des Videos) -->
+    <summary style="font-weight: bold; font-size: 1.3em; color: #3498db; list-style: none; display: flex; align-items: center; padding: 5px;">
+        <span style="margin-right: 10px;">▶</span> Aufstieg 1 (Copolia Nature Trail)
+    </summary>
+    <!-- Der eingebettete originale Vimeo-Player -->
+    <div style="padding: 56.25% 0 0 0; position: relative; margin-top: 15px; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+        <iframe 
+            src="https://player.vimeo.com/video/1245365910?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+            title="Aufstieg1">
+        </iframe>
+    </div>
+</details>
+
+<details style="background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; padding: 10px; cursor: pointer;">
+    <!-- Die Klick-Zeile (Titel des Videos) -->
+    <summary style="font-weight: bold; font-size: 1.3em; color: #3498db; list-style: none; display: flex; align-items: center; padding: 5px;">
+        <span style="margin-right: 10px;">▶</span> Aufstieg 2
+    </summary>
+    <!-- Der eingebettete originale Vimeo-Player mit Schatten, Ecken und 16:9-Format -->
+    <div style="padding: 56.25% 0 0 0; position: relative; margin-top: 15px; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+        <iframe 
+            src="https://player.vimeo.com/video/1245385076?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+            title="Aufstieg2">
+        </iframe>
+    </div>
+</details>
+
+<details style="background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; padding: 10px; cursor: pointer;">
+    <!-- Die Klick-Zeile (Hellblau, 1.3em) -->
+    <summary style="font-weight: bold; font-size: 1.3em; color: #3498db; list-style: none; display: flex; align-items: center; padding: 5px;">
+        <span style="margin-right: 10px;">▶</span> Aufstieg 3
+    </summary>
+    <!-- Der eingebettete originale Vimeo-Player (KORRIGIERT AUF 16:9 Breitbild) -->
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1245412899?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Aufstieg3_1"></iframe></div></script>
+</details>
+
+
+<details style="background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; padding: 10px; cursor: pointer;">
+    <!-- Die Klick-Zeile (Hellblau, 1.3em) -->
+    <summary style="font-weight: bold; font-size: 1.3em; color: #3498db; list-style: none; display: flex; align-items: center; padding: 5px;">
+        <span style="margin-right: 10px;">▶</span> Meeresbrandung 1
+    </summary>
+    <!-- Der eingebettete originale Vimeo-Player (KORRIGIERT AUF 16:9 Breitbild) -->
+    <div style="padding: 56.25% 0 0 0; position: relative; margin-top: 15px; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+        <iframe 
+            src="https://player.vimeo.com/video/1245389797?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+            title="Meereswellen1">
+        </iframe>
+    </div>
+</details>
+
+<details style="background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; padding: 10px; cursor: pointer;">
+    <!-- Die Klick-Zeile (Hellblau, 1.3em) -->
+    <summary style="font-weight: bold; font-size: 1.3em; color: #3498db; list-style: none; display: flex; align-items: center; padding: 5px;">
+        <span style="margin-right: 10px;">▶</span> Meeresbrandung 2
+    </summary>
+    <!-- Der eingebettete originale Vimeo-Player (KORRIGIERT AUF 16:9 Breitbild) -->
+    <div style="padding: 56.25% 0 0 0; position: relative; margin-top: 15px; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+        <iframe 
+            src="https://player.vimeo.com/video/1245394393?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+            title="Meereswellen2">
+        </iframe>
+    </div>
+</details>
+Hier standen wir mit dem Auto auf einem Aussichtspunkt, den uns ein anderes Fahrzeug kurz zuvor freigemacht hat, um die Strße nicht zu blockieren. Und dann kam gerade die große Welle.<br><br>
+
+<details style="background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; padding: 10px; cursor: pointer;">
+    <!-- Die Klick-Zeile (Hellblau, 1.3em) -->
+    <summary style="font-weight: bold; font-size: 1.3em; color: #3498db; list-style: none; display: flex; align-items: center; padding: 5px;">
+        <span style="margin-right: 10px;">▶</span> Meereswellen 3
+    </summary>
+    <!-- Der eingebettete originale Vimeo-Player (KORRIGIERT AUF 16:9 Breitbild) -->
+    <div style="padding: 56.25% 0 0 0; position: relative; margin-top: 15px; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+        <iframe 
+            src="https://player.vimeo.com/video/1245396973?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+            title="Meereswellen3">
+        </iframe>
+    </div>
+</details>
+
+Hier wird eine gefährliche Wasserströmung sichtbar, die Badende auf das offene Meer hinausziehen könnte. Gut zu erkennen an der ablandigen Welle gleich am Anfang.<br><br>
+
+<details style="background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; padding: 10px; cursor: pointer;">
+    <!-- Die Klick-Zeile (Hellblau, 1.3em) -->
+    <summary style="font-weight: bold; font-size: 1.3em; color: #3498db; list-style: none; display: flex; align-items: center; padding: 5px;">
+        <span style="margin-right: 10px;">▶</span> Schildkröten 1
+    </summary>
+    <!-- Der eingebettete originale Vimeo-Player (KORRIGIERT AUF 16:9 Breitbild) -->
+ <div style=
+"padding:56.25% 0 0 0;
+position:relative;"><iframe src="https://player.vimeo.com/video/1245399501?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Schildk1"></iframe></div>
+</details>
+
+<details style="background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; padding: 10px; cursor: pointer;">
+    <!-- Die Klick-Zeile (Hellblau, 1.3em) -->
+    <summary style="font-weight: bold; font-size: 1.3em; color: #3498db; list-style: none; display: flex; align-items: center; padding: 5px;">
+        <span style="margin-right: 10px;">▶</span> Schildkröten 2
+    </summary>
+    <!-- Der eingebettete originale Vimeo-Player (KORRIGIERT AUF 16:9 Breitbild) -->
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1245400767?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Schildk2"></iframe></div>
+</details>
+
+<details style="background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; padding: 10px; cursor: pointer;">
+    <!-- Die Klick-Zeile (Hellblau, 1.3em) -->
+    <summary style="font-weight: bold; font-size: 1.3em; color: #3498db; list-style: none; display: flex; align-items: center; padding: 5px;">
+        <span style="margin-right: 10px;">▶</span> Schildkröten 3
+    </summary>
+    <!-- Der eingebettete originale Vimeo-Player (KORRIGIERT AUF 16:9 Breitbild) -->
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1245401433?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Schildk3"></iframe></div>
+</details>
+
+<details style="background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 15px; padding: 10px; cursor: pointer;">
+    <!-- Die Klick-Zeile (Hellblau, 1.3em) -->
+    <summary style="font-weight: bold; font-size: 1.3em; color: #3498db; list-style: none; display: flex; align-items: center; padding: 5px;">
+        <span style="margin-right: 10px;">▶</span> Schildkröten 4
+    </summary>
+    <!-- Der eingebettete originale Vimeo-Player (KORRIGIERT AUF 16:9 Breitbild) -->
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1245402902?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Schildk4"></iframe></div>
+</details>
+
+
+
+<!-- Das dazugehörige Vimeo-Skript (muss nur einmal ganz unten auf der Seite stehen) -->
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+
+<!-- Neue Sektion: Botanischer Garten -->
+<h2 style="margin-top: 50px; border-bottom: 2px solid #2d6a4f; padding-bottom: 8px; color: #1b4332;">
+    🌿 Le Jardin du Roi Spice Garden (Anse Royale, Mahé)
+</h2>
+
+<!-- Eingangsbild über die volle Breite -->
+<div class="gallery-item" style="margin-bottom: 25px; background: #f3f8f4; border-radius: 6px; overflow: hidden;">
+    <img src="bilda0.jpg" 
+         alt="Eingang" 
+         onclick="openLightbox(this)" 
+         style="width: 100%; height: 380px; object-fit: cover; display: block; cursor: pointer;">            
+    <div class="caption" style="padding: 15px 20px;">
+        <strong>Auf den Spuren der historischen Gewürzroute:</strong> Hoch in den Hügeln über Anse Royale liegt der traditionsreiche Gewürzgarten <em>Le Jardin du Roi</em>. Inspiriert von den historischen Plantagen des 18. Jahrhunderts wachsen hier Vanille, Zimt, Muskat, Pfeffer und sogar angepflanzte Coco-de-Mer-Palmen.
+    </div>
+</div>
+
+
+<div class="gallery">
+<div class="gallery-item">
+        <img src="bilda1.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Musa balbisiana</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda2.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Brotfruchtbaum</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda3.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Ceylon Zimt</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda4.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Blatt dazu</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda5.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Brotfrucht</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda6.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Jackfrucht</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda7.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Jackfruchtbaum</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda8.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Kakaobaum</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda9.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Frucht dazu</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda10.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Kokospalmen</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda11.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Muskatnußbaum</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda12.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Muskatnuß</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda13.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Netzannone</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda14.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Pfefferstrauch</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda15.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Palme</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda16.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Vanillie</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda17.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Teestrauch</strong>
+                Der schafft es sogar im Wald Wurzeln zu  fassen.
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda18.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Kanonenkugelbaum</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda19.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Karambole</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda20.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Felsen</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda21.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Stelzen Wurzeln</strong>
+            </div>
+        </div>
+<div class="gallery-item">
+        <img src="bilda22.jpg" alt="Beschreibung" onclick="openLightbox(this)" style="width: 100%; height: 220px; object-fit: cover; border-radius: 4px; cursor: pointer;">            
+            <div class="caption">
+                <strong>Stelzen Palme</strong>
+            </div>
+        </div>
+
+
+
+
+
+</div>
+
+
+<!-- Zurück nach oben Schaltfläche -->
+<div style="text-align: center; margin: 40px 0 20px 0;">
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" 
+          style="padding: 12px 24px; font-size: 16px; background-color: #2c5e50; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    ↑ Zurück nach oben
+  </button>
+</div>
+
+
+
+    <!-- Das einklappbare Impressum am Seitenende -->
+    <footer>
+        <details>
+            <summary>⚖️ Impressum anzeigen / ausblenden</summary>
+            <div class="impressum-content">
+                <p><strong>Diensteanbieter gemäß § 5 DDG:</strong><br>
+                Michael Thate<br>
+                Malteserstr. 9<br>
+                12247 Berlin</p>
+                
+                <p><strong>Kontakt:</strong><br>
+                E-Mail: o00mt@fn.de<br>
+            </div>
+        </details>
+    </footer>
+
+
+
+    <!-- Die Lightbox-Box (standardmäßig unsichtbar) -->
+    <dialog id="lightbox" onclick="this.close()" style="border: none; background: transparent; padding: 0; max-width: 90vw; max-height: 90vh;">
+        <div style="position: relative; display: flex; justify-content: center; align-items: center;">
+            <img id="lightbox-img" src="" alt="Vergrößerte Ansicht" style="max-width: 100%; max-height: 85vh; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); object-fit: contain;">
+            <span style="position: absolute; top: -40px; right: 0; color: white; font-size: 30px; font-family: Arial, sans-serif; cursor: pointer; user-select: none;">&times;</span>
+        </div>
+    </dialog>
+
+    <!-- Ein winziges Skript, das dem Browser sagt, welches Bild er öffnen soll -->
+    <script>
+        function openLightbox(imgElement) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgElement.src;
+            lightbox.showModal();
+        }
+    </script>
+    
+</body>
+</html>
